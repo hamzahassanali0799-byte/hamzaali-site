@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hamza Ali — AI Automation for Local Business | Surrey, BC</title>
-  <meta name="description" content="I build simple AI systems that catch every lead — missed-call text-back, after-hours AI receptionist, and instant lead response — so local businesses stop losing the customers they already pay to attract." />
+  <meta name="description" content="Surrey-based AI automation. I catch every lead you already pay for — missed-call text-back, after-hours AI receptionist, instant follow-up — and I'll teach you Claude Code 1-on-1. Simple $100/hour pricing." />
 
   <!-- Open Graph (for when the link is shared) -->
   <meta property="og:title" content="Stop losing the leads you already pay for." />
-  <meta property="og:description" content="AI systems that catch every missed call, after-hours inquiry, and web form — so your business stops leaking revenue. Based in Surrey, BC." />
+  <meta property="og:description" content="AI systems that catch every missed call, after-hours inquiry, and web form. Built and launched in hours, not weeks. Surrey, BC · $100/hour." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -73,11 +73,16 @@
     .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
     .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+    .nav-links { display: none; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+    .nav-links a:hover { color: var(--accent); }
     .nav-cta { display: none; }
-    @media (min-width: 640px) { .nav-cta { display: inline-flex; } }
+    @media (min-width: 720px) { .nav-cta { display: inline-flex; } .nav-links { display: flex; } }
 
     /* Hero */
-    .hero { padding: 84px 0 64px; }
+    .hero { padding: 76px 0 56px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 44px; align-items: center; }
+    @media (min-width: 880px) { .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 52px; } }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 13px; font-weight: 600; letter-spacing: .02em;
@@ -85,18 +90,44 @@
       padding: 7px 14px; border-radius: 999px; margin-bottom: 22px;
     }
     .hero h1 {
-      font-size: clamp(34px, 6vw, 58px);
+      font-size: clamp(34px, 6vw, 56px);
       line-height: 1.05; letter-spacing: -.03em; font-weight: 800;
       max-width: 16ch;
     }
     .hero h1 .hl { color: var(--accent); }
     .hero p.lede {
       margin-top: 22px; font-size: clamp(17px, 2.4vw, 20px);
-      color: var(--ink-soft); max-width: 56ch;
+      color: var(--ink-soft); max-width: 52ch;
     }
-    .hero-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
     .hero-note { margin-top: 18px; font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
     .hero-note .check { color: var(--ok); font-weight: 700; }
+    .hero-media { position: relative; }
+    .hero-media img {
+      width: 100%; height: auto; display: block;
+      border-radius: 22px; border: 1px solid var(--line);
+      box-shadow: 0 24px 60px rgba(15,23,42,.16);
+      background: linear-gradient(160deg, var(--accent-soft), #fff);
+    }
+    .hero-media .badge {
+      position: absolute; left: -14px; bottom: 22px;
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      padding: 12px 16px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 600;
+    }
+    .hero-media .badge .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(5,150,105,.15); }
+    @media (max-width: 879px) { .hero-media .badge { left: 12px; } }
+
+    /* Stats band */
+    .stats { background: var(--ink); color: #fff; }
+    .stats .wrap { padding-top: 40px; padding-bottom: 40px; }
+    .stats-lead { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #93c5fd; margin-bottom: 22px; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+    @media (min-width: 760px) { .stat-grid { grid-template-columns: repeat(4, 1fr); } }
+    .stat-item .num { font-size: clamp(30px, 5vw, 44px); font-weight: 800; letter-spacing: -.03em; color: #fff; }
+    .stat-item .num .u { color: #60a5fa; }
+    .stat-item .lbl { margin-top: 6px; font-size: 14.5px; color: #cbd5e1; line-height: 1.4; }
+    .stats-src { margin-top: 22px; font-size: 12px; color: #64748b; }
 
     /* Section scaffolding */
     section.block { padding: 72px 0; }
@@ -119,30 +150,50 @@
 
     /* Services */
     .cards { display: grid; grid-template-columns: 1fr; gap: 22px; }
-    @media (min-width: 800px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 880px) { .cards { grid-template-columns: repeat(3, 1fr); } }
     .card {
-      border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 26px;
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px;
       background: #fff; box-shadow: var(--shadow); transition: transform .18s ease, box-shadow .18s ease;
+      position: relative;
     }
     .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,23,42,.10); }
     .card .ico { width: 50px; height: 50px; border-radius: 13px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 18px; }
     .card .ico svg { width: 26px; height: 26px; }
-    .card h3 { font-size: 20px; letter-spacing: -.01em; }
+    .card h3 { font-size: 19px; letter-spacing: -.01em; }
     .card p { margin-top: 10px; color: var(--ink-soft); font-size: 15.5px; }
+    .card.feature { background: linear-gradient(160deg, var(--accent-soft), #fff); border-color: #bfdbfe; }
+    .card .tag { position: absolute; top: 22px; right: 22px; font-size: 12px; font-weight: 700; color: var(--accent); background: #fff; border: 1px solid #bfdbfe; padding: 4px 10px; border-radius: 999px; }
 
-    /* Offer */
-    .offer { background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 24px; padding: clamp(34px, 5vw, 60px); position: relative; overflow: hidden; }
+    /* Offer / pricing */
+    .offer { background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 24px; padding: clamp(34px, 5vw, 56px); position: relative; overflow: hidden; }
     .offer::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; background: radial-gradient(circle, rgba(37,99,235,.5), transparent 70%); }
-    .offer .price-tag { display: inline-flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+    .offer .price-tag { display: inline-flex; align-items: baseline; gap: 8px; margin-bottom: 8px; position: relative; }
     .offer .price-tag .amt { font-size: clamp(40px, 7vw, 60px); font-weight: 800; letter-spacing: -.03em; }
-    .offer .price-tag .per { color: #94a3b8; font-size: 16px; }
-    .offer h2 { font-size: clamp(24px, 4vw, 34px); letter-spacing: -.02em; max-width: 20ch; position: relative; }
-    .offer p { margin-top: 16px; color: #cbd5e1; font-size: 17px; max-width: 54ch; position: relative; }
-    .offer ul { margin: 22px 0 28px; padding: 0; list-style: none; display: grid; gap: 10px; position: relative; }
-    .offer li { display: flex; gap: 10px; align-items: flex-start; color: #e2e8f0; font-size: 15.5px; }
-    .offer li .c { color: #38bdf8; font-weight: 700; flex: none; }
+    .offer .price-tag .per { color: #94a3b8; font-size: 17px; }
+    .offer h2 { font-size: clamp(24px, 4vw, 34px); letter-spacing: -.02em; max-width: 22ch; position: relative; }
+    .offer .sub { margin-top: 14px; color: #cbd5e1; font-size: 17px; max-width: 56ch; position: relative; }
+    .price-tracks { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 28px 0; position: relative; }
+    @media (min-width: 720px) { .price-tracks { grid-template-columns: 1fr 1fr; } }
+    .track { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 24px; }
+    .track h3 { font-size: 18px; display: flex; align-items: center; gap: 8px; }
+    .track p { margin-top: 8px; color: #cbd5e1; font-size: 15px; }
+    .track .meta { margin-top: 14px; font-size: 14px; color: #93c5fd; font-weight: 600; }
+    .offer .terms { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 4px 0 26px; position: relative; }
+    .offer .terms span { color: #e2e8f0; font-size: 14.5px; display: flex; align-items: center; gap: 8px; }
+    .offer .terms .c { color: #38bdf8; font-weight: 700; }
     .offer .btn-primary { background: var(--accent); }
     .offer .btn-primary:hover { background: #3b82f6; }
+
+    /* Map / local */
+    .local-grid { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
+    @media (min-width: 860px) { .local-grid { grid-template-columns: .9fr 1.1fr; } }
+    .map-card { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); line-height: 0; }
+    .map-card iframe { width: 100%; height: 380px; border: 0; display: block; filter: grayscale(.15); }
+    .local h2 { font-size: clamp(26px, 4vw, 36px); letter-spacing: -.02em; }
+    .local p { margin-top: 16px; color: var(--ink-soft); font-size: 17px; }
+    .local .pins { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .local .pin { font-size: 14px; font-weight: 600; color: var(--ink-soft); background: var(--bg-soft); border: 1px solid var(--line); padding: 7px 14px; border-radius: 999px; }
 
     /* Why me */
     .why { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
@@ -178,21 +229,46 @@
   <header>
     <div class="wrap nav">
       <div class="brand"><span class="dot"></span> Hamza Ali</div>
-      <a class="btn btn-primary nav-cta" href="mailto:hamza@hamzaali.ca?subject=Free%2015-minute%20call">Book a free call</a>
+      <nav class="nav-links">
+        <a href="#services">What I build</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#local">Surrey, BC</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="mailto:hamza@hamzaali.ca?subject=Free%2015-minute%20call&body=Hi%20Hamza%2C%20I%27d%20like%20to%20book%20a%20free%2015-minute%20call.">Book a free call</a>
     </div>
   </header>
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">AI automation for local business · Surrey, BC</span>
-      <h1>Stop losing the leads you <span class="hl">already pay for.</span></h1>
-      <p class="lede">Every missed call, after-hours message, and ignored web form is a customer you spent money to attract — gone. I build simple AI systems that catch every lead the second it comes in, so your business stops leaking revenue.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="mailto:hamza@hamzaali.ca?subject=Free%2015-minute%20call&body=Hi%20Hamza%2C%20I%27d%20like%20to%20book%20a%20free%2015-minute%20call.">Book a free 15-minute call</a>
-        <a class="btn btn-ghost btn-lg" href="#services">See what I build</a>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">AI automation for local business · Surrey, BC</span>
+        <h1>Stop losing the leads you <span class="hl">already pay for.</span></h1>
+        <p class="lede">Every missed call, after-hours message, and ignored web form is a customer you spent money to attract — gone. I build simple AI systems that catch every lead the second it comes in, so your business stops leaking revenue.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="mailto:hamza@hamzaali.ca?subject=Free%2015-minute%20call&body=Hi%20Hamza%2C%20I%27d%20like%20to%20book%20a%20free%2015-minute%20call.">Book a free 15-minute call</a>
+          <a class="btn btn-ghost btn-lg" href="#services">See what I build</a>
+        </div>
+        <div class="hero-note"><span class="check">✓</span> No pitch, no obligation — I'll show you exactly where you're losing leads.</div>
       </div>
-      <div class="hero-note"><span class="check">✓</span> No pitch, no obligation — I'll show you exactly where you're losing leads.</div>
+      <div class="hero-media">
+        <img src="hero.webp" alt="A phone auto-replying to a customer lead in 8 seconds" loading="eager" width="1200" height="896" />
+        <div class="badge"><span class="pulse"></span> New lead · replied in 8 sec</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS BAND ============ -->
+  <section class="stats">
+    <div class="wrap">
+      <div class="stats-lead">Why speed wins — the data</div>
+      <div class="stat-grid">
+        <div class="stat-item"><div class="num">78<span class="u">%</span></div><div class="lbl">of customers buy from the business that responds <em>first</em>.</div></div>
+        <div class="stat-item"><div class="num">21<span class="u">×</span></div><div class="lbl">more likely to win a lead when you reply within 5 minutes vs 30.</div></div>
+        <div class="stat-item"><div class="num">62<span class="u">%</span></div><div class="lbl">of calls to local businesses go unanswered — every one a lost sale.</div></div>
+        <div class="stat-item"><div class="num">&lt;60<span class="u">s</span></div><div class="lbl">response time my systems hit — automatically, around the clock.</div></div>
+      </div>
+      <div class="stats-src">Industry figures (Lead Response Management study; BIA/Kelsey). Your results depend on your business — but the leak is real, and it's fixable.</div>
     </div>
   </section>
 
@@ -218,8 +294,8 @@
     <div class="wrap">
       <div class="section-head">
         <div class="kicker">What I build</div>
-        <h2>Three systems that catch every lead — automatically</h2>
-        <p>Not "AI" for the sake of it. Practical automation that does one job: make sure no customer ever falls through the cracks.</p>
+        <h2>Things we could put to work in your business</h2>
+        <p>Not "AI" for the sake of it — practical automation that does one job: make sure no customer ever falls through the cracks. Pick one to start, or mix and match.</p>
       </div>
       <div class="cards">
         <div class="card">
@@ -237,30 +313,81 @@
           <h3>Instant Lead Response</h3>
           <p>The moment someone fills out your form or messages you, they get an immediate reply and you get notified — no more leads rotting in an inbox.</p>
         </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Review &amp; Reputation Autopilot</h3>
+          <p>After every job, happy customers get a gentle nudge to leave a Google review — so your rating climbs on autopilot and more locals find you.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></div>
+          <h3>Smart Follow-Up Sequences</h3>
+          <p>A "maybe" isn't a "no." Automatic, friendly text/email follow-ups over the next few days turn the leads you'd normally forget into booked jobs.</p>
+        </div>
+        <div class="card feature">
+          <span class="tag">$100 / hour</span>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Learn Claude Code 1-on-1</h3>
+          <p>Want to build your own AI tools? In a focused hour I'll teach you Claude Code hands-on — automate your own workflows, on your own screen, at your own pace.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ OFFER ============ -->
-  <section class="block">
+  <!-- ============ PRICING / OFFER ============ -->
+  <section class="block" id="pricing">
     <div class="wrap">
       <div class="offer">
-        <div class="price-tag"><span class="amt">$400</span><span class="per">flat — one focused session</span></div>
-        <h2>Start with one fix, not a big project.</h2>
-        <p>In a 90-minute working session, I'll get your single biggest leak fixed and live on your line — while you watch. No long contracts, no jargon, no "phase one of five."</p>
-        <ul>
-          <li><span class="c">→</span> We find the one leak costing you the most</li>
-          <li><span class="c">→</span> I build it and turn it on, live, during the session</li>
-          <li><span class="c">→</span> You see it catch a real lead before we finish</li>
-          <li><span class="c">→</span> If it's not obviously worth it by the end, you don't take the next step</li>
-        </ul>
-        <a class="btn btn-primary btn-lg" href="mailto:hamza@hamzaali.ca?subject=AI%20Quick-Win%20Session&body=Hi%20Hamza%2C%20I%27m%20interested%20in%20the%20%24400%20quick-win%20session.">Book your quick-win session</a>
+        <div class="price-tag"><span class="amt">$100</span><span class="per">/ hour — flat, no retainers</span></div>
+        <h2>Simple pricing. Pay for the hour, keep the system.</h2>
+        <p class="sub">No long contracts, no "phase one of five," no monthly software you'll forget you're paying for. Just straight hourly work — most single fixes go live in one or two hours.</p>
+        <div class="price-tracks">
+          <div class="track">
+            <h3>🔧 Done-for-you</h3>
+            <p>I build, connect, and switch on your automation — live, while you watch. You walk away with a working system catching real leads.</p>
+            <div class="meta">$100/hr · most quick wins: 1–2 hours</div>
+          </div>
+          <div class="track">
+            <h3>🎓 Learn it yourself</h3>
+            <p>1-on-1 Claude Code coaching. I'll teach you to build and run your own AI automations, screen-share, at your pace.</p>
+            <div class="meta">$100/hr · start with a single power hour</div>
+          </div>
+        </div>
+        <div class="terms">
+          <span><span class="c">→</span> Free 15-min call first</span>
+          <span><span class="c">→</span> You only pay for time spent</span>
+          <span><span class="c">→</span> Plain English, no jargon</span>
+        </div>
+        <a class="btn btn-primary btn-lg" href="mailto:hamza@hamzaali.ca?subject=AI%20automation%20enquiry&body=Hi%20Hamza%2C%20I%27d%20like%20to%20talk%20about%20automating%20my%20business.%20Here%27s%20what%20I%27m%20dealing%20with%3A">Book your free call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCAL / MAP ============ -->
+  <section class="block" id="local" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap local-grid local">
+      <div>
+        <div class="kicker" style="color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:14px;">Based in Surrey, BC</div>
+        <h2 style="margin-top:12px;">Local — serving businesses across Metro Vancouver.</h2>
+        <p>I'm right here in Surrey, on your time zone, easy to reach. Whether you're in Surrey, Langley, Burnaby, Richmond or downtown Vancouver, we can hop on a quick call today and have your first fix live this week — no offshore agency, no time-zone runaround.</p>
+        <div class="pins">
+          <span class="pin">📍 Surrey</span>
+          <span class="pin">📍 Langley</span>
+          <span class="pin">📍 Burnaby</span>
+          <span class="pin">📍 Richmond</span>
+          <span class="pin">📍 Vancouver</span>
+        </div>
+      </div>
+      <div class="map-card">
+        <iframe
+          title="Serving Metro Vancouver, based in Surrey BC"
+          src="https://maps.google.com/maps?q=Surrey%2C%20British%20Columbia%2C%20Canada&z=10&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
   <!-- ============ WHY ME ============ -->
-  <section class="block" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <section class="block">
     <div class="wrap why">
       <div>
         <div class="kicker" style="color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:14px;">Why work with me</div>
@@ -268,14 +395,14 @@
         <p>I'm an automation engineer based right here in Surrey. I build and run live automated systems every day — including algorithmic trading bots that make real-time decisions with real money on the line. The same engineering goes into making sure your business never misses another lead.</p>
         <div class="points">
           <div class="pt"><span class="c">✓</span><span>Local — same time zone, same city, easy to reach</span></div>
-          <div class="pt"><span class="c">✓</span><span>Fast — most fixes go live in a single session, not weeks</span></div>
+          <div class="pt"><span class="c">✓</span><span>Fast — most fixes go live in an hour or two, not weeks</span></div>
           <div class="pt"><span class="c">✓</span><span>Plain English — you'll understand exactly what's running and why</span></div>
         </div>
       </div>
       <div class="why-card">
         <div class="stat"><strong>24/7</strong> your business answers leads — even while you sleep</div>
         <div class="stat"><strong>&lt; 60 sec</strong> typical response time to a missed call or new inquiry</div>
-        <div class="stat"><strong>90 min</strong> to get your first leak fixed and live</div>
+        <div class="stat"><strong>$100/hr</strong> flat — pay for the hour, no lock-in</div>
       </div>
     </div>
   </section>
